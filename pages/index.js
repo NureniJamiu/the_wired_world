@@ -2,11 +2,12 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
-import { Main, Aside } from "@/components";
+import { Main, Aside, PostCard } from "@/components";
+import { getPosts } from "@/services";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+export default function Home({ posts }) {
   return (
     <>
       <Head>
@@ -17,7 +18,12 @@ export default function Home() {
       </Head>
       <div className="container px-20 grid grid-cols-6 gap-5 font-Nunito">
         <div className="col-span-4">
-          <Main />
+          <div className="grid grid-cols-2 gap-3">
+            {posts.map((post, index) => (
+              <PostCard key={index} post={post.node} />
+            ))}
+          </div>
+          {/* <Main posts={posts} /> */}
         </div>
         <div className="col-span-2">
           <Aside />
@@ -25,4 +31,12 @@ export default function Home() {
       </div>
     </>
   );
+}
+
+export async function getStaticProps() {
+  const posts = (await getPosts()) || [];
+
+  return {
+    props: { posts },
+  };
 }
