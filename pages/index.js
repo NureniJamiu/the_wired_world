@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
-import { Main, Aside, PostCard } from "@/components";
+import { Main, PostCard, PostWidget, Categories } from "@/components";
 import { getPosts } from "@/services";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -26,7 +26,10 @@ export default function Home({ posts }) {
           {/* <Main posts={posts} /> */}
         </div>
         <div className="col-span-2">
-          <Aside />
+          <div className="h-screen flex flex-col gap-10 justify-between">
+            <PostWidget />
+            <Categories />
+          </div>
         </div>
       </div>
     </>
