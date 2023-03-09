@@ -17,15 +17,19 @@ const PostWidget = ({ categories, slug }) => {
     }
   }, [categories, slug]);
 
-  console.log(relatedPosts);
   return (
-    <div className="shadow-md rounded-md w-full h-96 p-5 mt-4">
+    <div className="shadow-md rounded-md w-full p-5 mt-4">
       <h3 className="text-lg font-bold py-3 border-b-2">
         {slug ? "Related Posts" : "Recent Posts"}
       </h3>
       <div>
         {relatedPosts.map((post, index) => (
-          <div key={index} className="flex items-center gap-5 py-3">
+          <div
+            key={index}
+            className={`flex items-center gap-5 py-3 hover:text-blue-600 ${
+              index !== relatedPosts.length - 1 && "border-b"
+            }`}
+          >
             <img
               src={post.featuredImage.url}
               alt={post.title}

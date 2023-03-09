@@ -9,7 +9,7 @@ const Navbar = () => {
     { category: "Cybersecurity", slug: "cybersecurity" },
   ];
   return (
-    <nav className="container mx-auto px-20 pt-5 pb-3 mb-8 shadow flex justify-between items-center rounded-b-3xl">
+    <nav className="container mx-auto px-20 pt-5 pb-3 mb-8 flex justify-between items-center border-b">
       <div className="cursor-pointer">
         <Image
           src="/assets/logo.png"
