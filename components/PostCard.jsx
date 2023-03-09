@@ -6,7 +6,7 @@ import moment from "moment/moment";
 
 const PostCard = ({ post }) => {
   return (
-    <div className="w-full p-2 shadow rounded transition duration-200 scale-95 hover:scale-100">
+    <div className="w-full p-2 shadow rounded transition duration-200 scale-95 cursor-default hover:scale-100">
       <div>
         <img
           src={post.featuredImage.url}
