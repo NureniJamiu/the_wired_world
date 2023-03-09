@@ -20,7 +20,7 @@ const Categories = () => {
           {categories.map((category, index) => (
             <Link key={index} href={`/category/${category.slug}`}>
               <span
-                className={`block cursor-pointer py-3 mb-2 hover:text-blue-600 ${
+                className={`block cursor-pointer py-3 mb-2 hover:border-l-[3px] hover:border-l-blue-500 hover:pl-3 transition-all duration-200 ${
                   index !== categories.length - 1 && "border-b"
                 }`}
               >
