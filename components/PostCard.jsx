@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { BsCalendar2Event, BsPersonCircle, BsArrowRight } from "react-icons/bs";
 import moment from "moment/moment";
+import Link from "next/link";
 
 const PostCard = ({ post }) => {
   return (
@@ -34,9 +35,13 @@ const PostCard = ({ post }) => {
         </div>
         <p className="text-center line-clamp-4 my-4">{post.excerpt}</p>
       </div>
-      <p className="w-40 text-center text-red-500 cursor-pointer mx-auto px-3 py-2 rounded-lg mb-2 flex gap-1 text-sm font-semibold transition ease-in-out duration-200 group items-center hover:translate-x-2">
-        Continue Reading <BsArrowRight />
-      </p>
+      <div>
+        <Link href={`/post/${post.slug}`}>
+          <p className="w-40 text-center text-red-500 cursor-pointer mx-auto px-3 py-2 rounded-lg mb-2 flex gap-1 text-sm font-semibold transition ease-in-out duration-200 group items-center hover:translate-x-2">
+            Continue Reading <BsArrowRight />
+          </p>
+        </Link>
+      </div>
     </div>
   );
 };
